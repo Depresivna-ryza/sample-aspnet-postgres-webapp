@@ -56,15 +56,15 @@ public class TasksController : ControllerBase
         return NoContent();
     }
 
-    // [HttpDelete("{id}")]
-    // public async Task<IActionResult> Delete(Guid id)
-    // {
-    //     var task = await _context.Tasks.FindAsync(id);
-    //     if (task == null) return NotFound();
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var task = await _context.Tasks.FindAsync(id);
+        if (task == null) return NotFound();
 
-    //     _context.Tasks.Remove(task);
-    //     await _context.SaveChangesAsync();
+        _context.Tasks.Remove(task);
+        await _context.SaveChangesAsync();
 
-    //     return NoContent();
-    // }
+        return NoContent();
+    }
 }
